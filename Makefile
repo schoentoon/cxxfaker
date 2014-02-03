@@ -7,7 +7,7 @@ CXX             := g++
 AR              := ar
 
 NAME := cxxfaker
-DEPS := src/Internet.o
+DEPS := src/Base.o src/Internet.o
 
 all: $(NAME).so $(NAME).a
 

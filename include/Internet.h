@@ -3,15 +3,17 @@
 
 #include "defines.h"
 
-typedef int randGenerator();
-typedef void randSeeder(unsigned int seed);
+#include "Base.h"
 
 namespace cxxfaker {
   namespace providers {
-    class Internet {
+    class Internet : public Base {
     public:
-      static STRING IPv4(randGenerator* random = NULL, randSeeder* seeder = NULL, unsigned int seed = 0);
-      static STRING IPv6(randGenerator* random = NULL, randSeeder* seeder = NULL, unsigned int seed = 0);
+      Internet(randGenerator* generator = NULL, randSeeder* seeder = NULL)
+      : Base(generator, seeder) {
+      };
+      STRING IPv4();
+      STRING IPv6();
     };
   };
 };
