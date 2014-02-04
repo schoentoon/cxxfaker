@@ -37,7 +37,7 @@ libgtest.a: gtest-1.7.0.zip
 TEST_DEPS := $(patsubst %_test.cpp, %_test.o, $(shell find . -name \*_test.cpp -type f))
 
 %_test.o: %_test.cpp
-	$(CXX) $(CFLAGS) $(INC) -Igtest-1.7.0/include $(DEFINES) -c $< -o $@
+	$(CXX) $(CFLAGS) $(INC) -Itest -Igtest-1.7.0/include $(DEFINES) -c $< -o $@
 
 test.out: libgtest.a $(TEST_DEPS) $(NAME).a
 	$(CXX) $(CFLAGS) $(INC) -Igtest-1.7.0/include $(DEFINES) -o $@ $(TEST_DEPS) $(NAME).a libgtest.a -pthread

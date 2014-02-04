@@ -2,7 +2,7 @@
 
 #include "Internet.h"
 
-#include <iostream>
+#include "Base_test.h"
 
 #include <arpa/inet.h>
 
@@ -10,13 +10,8 @@ using namespace cxxfaker::providers;
 
 namespace tests {
 
-class Internet : public ::testing::Test {
-public:
-  static int fakeGenerator() { return _number; };
-  static int _number;
+class Internet : public ::tests::Base {
 };
-
-int Internet::_number = 0;
 
 TEST_F(Internet, IPv4) {
   cxxfaker::providers::Internet* internet = new cxxfaker::providers::Internet();

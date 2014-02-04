@@ -5,7 +5,7 @@ using namespace cxxfaker::providers;
 Base::Base(randGenerator* pGenerator, randSeeder* pSeeder) {
   generator = pGenerator;
   seeder = pSeeder;
-  if (seeder != NULL)
+  if (seeder == NULL)
     seeder = std::srand;
   if (generator == NULL)
     generator = std::rand;
@@ -19,5 +19,9 @@ void Base::Seed(unsigned int seed) {
 };
 
 int Base::randomInt(int min, int max) {
-  return generator() % (max - min) + min;
+  return generator() % ((max + 1) - min) + min;
+};
+
+char Base::randomLetter() {
+  return randomInt('a', 'z');
 };

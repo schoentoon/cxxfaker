@@ -9,7 +9,7 @@ using namespace cxxfaker::providers;
 STRING Internet::IPv4() {
   std::stringstream output;
   for (int i = 0; i < 4; i++) {
-    output << randomInt(0, 256);
+    output << randomInt(0, 255);
     if (i != 3)
       output << ".";
   };
@@ -22,7 +22,7 @@ STRING Internet::IPv6() {
          << std::setw(4)
          << std::setfill('0');
   for (int i = 0; i < 8; i++) {
-    output << randomInt(0, 65535);
+    output << randomInt(0, 65534);
     if (i != 7)
       output << ":";
   };

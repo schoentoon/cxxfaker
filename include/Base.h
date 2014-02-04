@@ -16,6 +16,7 @@ namespace cxxfaker {
       virtual ~Base();
       void Seed(unsigned int seed);
       int randomInt(int min = 0, int max = RAND_MAX);
+      char randomLetter();
     private:
       randGenerator* generator;
       randSeeder* seeder;
