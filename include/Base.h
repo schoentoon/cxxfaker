@@ -40,7 +40,7 @@ namespace cxxfaker {
       template<typename T>
       typename std::vector<T>::iterator randomElement(std::vector<T> &v) const {
         typename std::vector<T>::iterator iter = v.begin();
-        int number = randomInt(0, v.size());
+        int number = randomInt(0, v.size() - 1);
         for (int i = 0; i < number; ++i)
           ++iter;
         return iter;
@@ -48,7 +48,7 @@ namespace cxxfaker {
       template<typename T>
       typename std::set<T>::iterator randomElement(std::set<T> &s) const {
         typename std::set<T>::iterator iter = s.begin();
-        int number = randomInt(0, s.size());
+        int number = randomInt(0, s.size() - 1);
         for (int i = 0; i < number; ++i)
           ++iter;
         return iter;
@@ -56,7 +56,7 @@ namespace cxxfaker {
       template<typename K, typename V>
       typename std::map<K, V>::iterator randomElement(std::map<K, V> &m) const {
         typename std::map<K, V>::iterator iter = m.begin();
-        int number = randomInt(0, m.size());
+        int number = randomInt(0, m.size() - 1);
         for (int i = 0; i < number; ++i)
           ++iter;
         return iter;
