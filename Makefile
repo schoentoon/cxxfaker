@@ -25,7 +25,7 @@ $(NAME).so: $(DEPS)
 	$(CXX) $(CFLAGS) $(INC) $(DEFINES) -shared -o $@ $(DEPS)
 
 $(NAME).a: $(DEPS)
-	$(AR) rcs $@ $@ $(DEPS)
+	$(AR) rcs $@ $(DEPS)
 
 
 gtest-1.7.0.zip:
