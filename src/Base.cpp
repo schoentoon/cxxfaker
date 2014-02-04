@@ -18,10 +18,10 @@ void Base::Seed(unsigned int seed) {
   seeder(seed);
 };
 
-int Base::randomInt(int min, int max) {
+int Base::randomInt(int min, int max) const {
   return generator() % ((max + 1) - min) + min;
 };
 
-char Base::randomLetter() {
+char Base::randomLetter() const {
   return randomInt('a', 'z');
 };

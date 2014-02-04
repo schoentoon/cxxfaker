@@ -14,7 +14,9 @@ all: $(NAME).so $(NAME).a
 .PHONY: clean
 
 clean:
-	find . -name "*.o" -o -name "*.so" -o -name "*.a" -delete
+	find . -name "*.o" -delete
+	find . -name "*.so" -delete
+	find . -name "*.a" -delete
 
 src/%.o: src/%.cpp include/%.h
 	$(CXX) $(CFLAGS) $(INC) $(DEFINES) -c $< -o $@
