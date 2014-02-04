@@ -3,5 +3,5 @@ compiler:
   - clang
   - gcc
 script:
-  - make
-  - make test
+  - make CXX=$CXX CC=$CC CFLAGS=-Werror
+  - make CXX=$CXX CC=$CC CFLAGS=-Werror test
