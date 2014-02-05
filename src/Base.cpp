@@ -46,3 +46,29 @@ char Base::randomLowerLetter() const {
 char Base::randomUpperLetter() const {
   return randomInt('A', 'Z');
 };
+
+int Base::fillString(STRING &str) const {
+  int output = 0;
+  for (STRING::iterator iter = str.begin(); iter != str.end(); ++iter) {
+    switch (*iter) {
+    case -0x01:
+      ++output;
+      *iter = randomInt('0', '9');
+      break;
+    case -0x02:
+      ++output;
+      *iter = randomInt('1', '9');
+      break;
+      break;
+    case -0x03:
+      ++output;
+      *iter = randomLowerLetter();
+      break;
+    case -0x04:
+      ++output;
+      *iter = randomUpperLetter();
+      break;
+    };
+  };
+  return output;
+};

@@ -38,6 +38,7 @@ namespace cxxfaker {
       int randomInt(int min = 0, int max = RAND_MAX) const;
       char randomLowerLetter() const;
       char randomUpperLetter() const;
+      int fillString(STRING &str) const;
       template<typename T>
       typename std::vector<T>::const_iterator randomElement(std::vector<T> &v) const {
         typename std::vector<T>::iterator iter = v.begin();

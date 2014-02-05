@@ -102,4 +102,23 @@ TEST_F(Base, RandomMapElement) {
   delete base;
 };
 
+TEST_F(Base, FillString) {
+  cxxfaker::providers::Base* base = new cxxfaker::providers::Base();
+  base->Seed(::testing::UnitTest::GetInstance()->random_seed());
+  const char buf[] = { -0x01, -0x02, -0x03, -0x04, '1', '3', '3', '7' };
+  std::string input(buf, sizeof(buf));
+  int mod = base->fillString(input);
+  EXPECT_EQ(mod, 4);
+  EXPECT_TRUE(isdigit(input[0]));
+  EXPECT_TRUE(isdigit(input[1]));
+  EXPECT_NE('0', input[1]);
+  EXPECT_TRUE(islower(input[2]));
+  EXPECT_TRUE(isupper(input[3]));
+  EXPECT_EQ('1', input[4]);
+  EXPECT_EQ('3', input[5]);
+  EXPECT_EQ('3', input[6]);
+  EXPECT_EQ('7', input[7]);
+  delete base;
+};
+
 };
