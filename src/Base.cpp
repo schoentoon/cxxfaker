@@ -39,6 +39,10 @@ int Base::randomInt(int min, int max) const {
   return generator() % ((max + 1) - min) + min;
 };
 
-char Base::randomLetter() const {
+char Base::randomLowerLetter() const {
   return randomInt('a', 'z');
+};
+
+char Base::randomUpperLetter() const {
+  return randomInt('A', 'Z');
 };

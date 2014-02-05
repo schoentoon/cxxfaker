@@ -38,10 +38,19 @@ TEST_F(Base, RandomInt) {
   delete base;
 };
 
-TEST_F(Base, RandomLetter) {
+TEST_F(Base, RandomLowerLetter) {
   cxxfaker::providers::Base* base = new cxxfaker::providers::Base();
-  char letter = base->randomLetter();
+  char letter = base->randomLowerLetter();
   EXPECT_TRUE(isalpha(letter));
+  EXPECT_TRUE(islower(letter));
+  delete base;
+};
+
+TEST_F(Base, RandomUpperLetter) {
+  cxxfaker::providers::Base* base = new cxxfaker::providers::Base();
+  char letter = base->randomUpperLetter();
+  EXPECT_TRUE(isalpha(letter));
+  EXPECT_TRUE(isupper(letter));
   delete base;
 };
 

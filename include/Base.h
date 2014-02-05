@@ -36,9 +36,10 @@ namespace cxxfaker {
       virtual ~Base();
       void Seed(unsigned int seed);
       int randomInt(int min = 0, int max = RAND_MAX) const;
-      char randomLetter() const;
+      char randomLowerLetter() const;
+      char randomUpperLetter() const;
       template<typename T>
-      typename std::vector<T>::iterator randomElement(std::vector<T> &v) const {
+      typename std::vector<T>::const_iterator randomElement(std::vector<T> &v) const {
         typename std::vector<T>::iterator iter = v.begin();
         int number = randomInt(0, v.size() - 1);
         for (int i = 0; i < number; ++i)
@@ -46,7 +47,7 @@ namespace cxxfaker {
         return iter;
       };
       template<typename T>
-      typename std::set<T>::iterator randomElement(std::set<T> &s) const {
+      typename std::set<T>::const_iterator randomElement(std::set<T> &s) const {
         typename std::set<T>::iterator iter = s.begin();
         int number = randomInt(0, s.size() - 1);
         for (int i = 0; i < number; ++i)
@@ -54,7 +55,7 @@ namespace cxxfaker {
         return iter;
       };
       template<typename K, typename V>
-      typename std::map<K, V>::iterator randomElement(std::map<K, V> &m) const {
+      typename std::map<K, V>::const_iterator randomElement(std::map<K, V> &m) const {
         typename std::map<K, V>::iterator iter = m.begin();
         int number = randomInt(0, m.size() - 1);
         for (int i = 0; i < number; ++i)
