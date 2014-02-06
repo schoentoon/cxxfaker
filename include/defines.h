@@ -19,3 +19,7 @@
 #  include <string>
 #  define STRING std::string
 #endif
+
+#ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+#endif

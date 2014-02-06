@@ -29,6 +29,7 @@ namespace cxxfaker {
       Internet(randGenerator* generator = NULL, randSeeder* seeder = NULL)
       : Base(generator, seeder) {
       };
+      virtual ~Internet() {};
       STRING IPv4();
       STRING IPv6();
     };
