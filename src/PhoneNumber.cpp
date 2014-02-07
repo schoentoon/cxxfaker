@@ -21,7 +21,7 @@ using namespace cxxfaker::providers;
 
 PhoneNumber::PhoneNumber(randGenerator* generator, randSeeder* seeder)
 : Base(generator, seeder) {
-  initFormats();
+  formats.push_back("###-###-###");
 };
 
 STRING PhoneNumber::phoneNumber() {
@@ -29,8 +29,4 @@ STRING PhoneNumber::phoneNumber() {
   STRING format(*iter);
   numerify(format);
   return format;
-};
-
-void PhoneNumber::initFormats() {
-  formats.push_back("###-###-###");
 };

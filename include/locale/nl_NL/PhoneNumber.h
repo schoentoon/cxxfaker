@@ -15,25 +15,23 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _PHONENUMBER_H
-#define _PHONENUMBER_H
+#ifndef _NL_NL_PHONENUMBER_H
+#define _NL_NL_PHONENUMBER_H
 
 #include "defines.h"
 
-#include "Base.h"
+#include "../../PhoneNumber.h"
 
 namespace cxxfaker {
   namespace providers {
-    class PhoneNumber : public Base {
-    public:
-      PhoneNumber(randGenerator* generator = NULL, randSeeder* seeder = NULL);
-      virtual ~PhoneNumber() {};
-      STRING phoneNumber();
-      operator STRING() { return phoneNumber(); };
-    protected:
-      std::vector<STRING> formats;
+    namespace nl_NL {
+      class PhoneNumber : public cxxfaker::providers::PhoneNumber {
+      public:
+        PhoneNumber(randGenerator* generator = NULL, randSeeder* seeder = NULL);
+        virtual ~PhoneNumber() {};
+      };
     };
   };
 };
 
-#endif //_PHONENUMBER_H
+#endif //_NL_NL_PHONENUMBER_H

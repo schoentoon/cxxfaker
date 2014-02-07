@@ -7,7 +7,7 @@ CXX             := g++
 AR              := ar
 
 NAME := cxxfaker
-DEPS := src/Base.o src/Internet.o src/DateTime.o src/PhoneNumber.o
+DEPS := $(patsubst %.cpp, %.o, $(shell find src/ -name \*.cpp -a \( ! -name \*_test.cpp \) -type f))
 
 all: $(NAME).so $(NAME).a
 
@@ -36,7 +36,7 @@ libgtest.a: gtest-1.7.0.zip
 	$(CXX) $(CFLAGS) -Igtest-1.7.0/include -Igtest-1.7.0 -c gtest-1.7.0/src/gtest-all.cc
 	ar -rv libgtest.a gtest-all.o
 
-TEST_DEPS := $(patsubst %_test.cpp, %_test.o, $(shell find . -name \*_test.cpp -type f))
+TEST_DEPS := $(patsubst %_test.cpp, %_test.o, $(shell find src/ -name \*_test.cpp -type f))
 
 %_test.o: %_test.cpp
 	$(CXX) $(CFLAGS) $(INC) -Itest -Igtest-1.7.0/include $(DEFINES) -c $< -o $@
