@@ -17,7 +17,7 @@
 
 #include <gtest/gtest.h>
 
-#include "locale/nl_NL/PhoneNumber.h"
+#include "locale/de_DE/PhoneNumber.h"
 
 #include "Base_test.h"
 
@@ -25,11 +25,11 @@ using namespace cxxfaker::providers;
 
 namespace tests {
 
-class nl_NL_PhoneNumber : public ::tests::Base {
+class de_DE_PhoneNumber : public ::tests::Base {
 };
 
-TEST_F(nl_NL_PhoneNumber, PhoneNumber) {
-  cxxfaker::providers::nl_NL::PhoneNumber* phonenumber = new cxxfaker::providers::nl_NL::PhoneNumber();
+TEST_F(de_DE_PhoneNumber, PhoneNumber) {
+  cxxfaker::providers::de_DE::PhoneNumber* phonenumber = new cxxfaker::providers::de_DE::PhoneNumber();
   phonenumber->Seed(::testing::UnitTest::GetInstance()->random_seed());
   STRING number = phonenumber->phoneNumber();
   for (STRING::const_iterator iter = number.begin(); iter != number.end(); ++iter) {
@@ -40,8 +40,8 @@ TEST_F(nl_NL_PhoneNumber, PhoneNumber) {
   delete phonenumber;
 };
 
-TEST_F(nl_NL_PhoneNumber, Operator) {
-  cxxfaker::providers::nl_NL::PhoneNumber phonenumber;
+TEST_F(de_DE_PhoneNumber, Operator) {
+  cxxfaker::providers::de_DE::PhoneNumber phonenumber;
   phonenumber.Seed(::testing::UnitTest::GetInstance()->random_seed());
   STRING number = phonenumber;
   for (STRING::const_iterator iter = number.begin(); iter != number.end(); ++iter) {

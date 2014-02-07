@@ -17,7 +17,7 @@
 
 #include <gtest/gtest.h>
 
-#include "locale/nl_NL/PhoneNumber.h"
+#include "locale/lv_LV/PhoneNumber.h"
 
 #include "Base_test.h"
 
@@ -25,27 +25,27 @@ using namespace cxxfaker::providers;
 
 namespace tests {
 
-class nl_NL_PhoneNumber : public ::tests::Base {
+class lv_LV_PhoneNumber : public ::tests::Base {
 };
 
-TEST_F(nl_NL_PhoneNumber, PhoneNumber) {
-  cxxfaker::providers::nl_NL::PhoneNumber* phonenumber = new cxxfaker::providers::nl_NL::PhoneNumber();
+TEST_F(lv_LV_PhoneNumber, PhoneNumber) {
+  cxxfaker::providers::lv_LV::PhoneNumber* phonenumber = new cxxfaker::providers::lv_LV::PhoneNumber();
   phonenumber->Seed(::testing::UnitTest::GetInstance()->random_seed());
   STRING number = phonenumber->phoneNumber();
   for (STRING::const_iterator iter = number.begin(); iter != number.end(); ++iter) {
-    if (isdigit(*iter) || *iter == '-' || *iter == '+' || *iter == '(' || *iter == ')' || *iter == ' ')
+    if (isdigit(*iter) || *iter == '-' || *iter == '+' || *iter == ' ')
       continue;
     ADD_FAILURE() << "What is this \"" << *iter << "\" doing in here..";
   };
   delete phonenumber;
 };
 
-TEST_F(nl_NL_PhoneNumber, Operator) {
-  cxxfaker::providers::nl_NL::PhoneNumber phonenumber;
+TEST_F(lv_LV_PhoneNumber, Operator) {
+  cxxfaker::providers::lv_LV::PhoneNumber phonenumber;
   phonenumber.Seed(::testing::UnitTest::GetInstance()->random_seed());
   STRING number = phonenumber;
   for (STRING::const_iterator iter = number.begin(); iter != number.end(); ++iter) {
-    if (isdigit(*iter) || *iter == '-' || *iter == '+' || *iter == '(' || *iter == ')' || *iter == ' ')
+    if (isdigit(*iter) || *iter == '-' || *iter == '+' || *iter == ' ')
       continue;
     ADD_FAILURE() << "What is this \"" << *iter << "\" doing in here..";
   };
