@@ -1,4 +1,4 @@
-override CFLAGS += -std=c++11 -g -Wall -O2 -pipe -fPIE
+override CFLAGS += -std=c++11 -g -Wall -O2 -pipe -fPIC
 INC             += -Iinclude
 override DEFINES:=
 
@@ -7,7 +7,7 @@ CXX             := g++
 AR              := ar
 
 NAME := cxxfaker
-DEPS := src/Base.o src/Internet.o src/DateTime.o
+DEPS := src/Base.o src/Internet.o src/DateTime.o src/PhoneNumber.o
 
 all: $(NAME).so $(NAME).a
 

@@ -72,3 +72,16 @@ int Base::fillString(STRING &str) const {
   };
   return output;
 };
+
+int Base::numerify(STRING& str, bool withZero) const {
+  int output = 0;
+  for (STRING::iterator iter = str.begin(); iter != str.end(); ++iter) {
+    switch (*iter) {
+    case '#':
+      ++output;
+      *iter = randomInt(withZero ? '0' : '1', '9');
+      break;
+    };
+  };
+  return output;
+};
